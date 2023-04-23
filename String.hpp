@@ -6,6 +6,7 @@
 class String
 {
 	friend std::ostream& operator<< (std::ostream&, const String&);
+	friend std::istream& operator>> (std::istream&, String&);
 	
 public:
 	String(const char* = "");
@@ -24,6 +25,9 @@ public:
 	
 private:
 	size_t length;
-	char* charPtr;
+	char* stringPtr;
+	
+public:
+	const static size_t MAX_LENGTH = 200;
 	
 };

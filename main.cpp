@@ -11,5 +11,9 @@ int main(int argc, char** argv) {
 	
 	cout << "String s1 is: " << s1 << ". Length: " << s1.size() << endl;
 	
+	cin >> s1;
+	cout << "String s1 is: " << s1 << ". Length: " << s1.size() << endl;
+
+	
 	return 0;
 }

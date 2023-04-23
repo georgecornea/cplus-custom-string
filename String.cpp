@@ -7,9 +7,9 @@
 using namespace std;
 	
 String::String(const char* chars)
-	:length{strlen(chars) > 0 ? strlen(chars) : 0}, charPtr{new char[length + 1]}
+	:length{strlen(chars) > 0 ? strlen(chars) : 0}, stringPtr{new char[length + 1]}
 {
-	strcpy(charPtr, chars);	
+	strcpy(stringPtr, chars);	
 
 }
 
@@ -25,7 +25,7 @@ String::String(std::initializer_list<char> list):length{list.size()}, charPtr{ne
 */
 
 String::~String(){
-	delete[] charPtr;
+	delete[] stringPtr;
 }
 
 /*
@@ -90,23 +90,23 @@ String::operator unsigned long() const
 */
 
 
-ostream& operator<< (ostream& out, const String& str)
+ostream& operator<< (ostream& out, const String& s)
 {
-	out << str.charPtr;
-	
-	/*
-	if (str.length > 0)
-	{
-		for (size_t index = 0; index < str.length; ++index){
-		out << str.charPtr[index];
-		}	
-	}
-	else
-	{
-		out << "empty";
-	}
-	*/
-	
+	out << s.stringPtr;
 	return out;
+}
+
+istream& operator>> (istream& in, String& s)
+{
+	
+	char buffer[s.MAX_LENGTH];
+	cin.get(buffer, s.MAX_LENGTH);
+	
+	s.length = strlen(buffer);
+	delete[] s.stringPtr;
+	s.stringPtr = new char[s.length + 1];
+	strcpy(s.stringPtr, buffer);
+	
+	return in;
 }
 
