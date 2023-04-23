@@ -1,0 +1,6 @@
+Makefile.win
+custom-string-class.dev
+custom-string-class.exe
+custom-string-class.layout
+main.o
+String.o
