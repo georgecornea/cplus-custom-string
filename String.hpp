@@ -5,7 +5,7 @@
 
 class String
 {
-	//friend std::ostream& operator<< (std::ostream&, const String&);
+	friend std::ostream& operator<< (std::ostream&, const String&);
 	
 public:
 	String(const char* = "");
@@ -20,7 +20,7 @@ public:
 	
 	//operator unsigned long() const;
 	
-	//size_t size() const {return length;}
+	size_t size() const {return length;}
 	
 private:
 	size_t length;

@@ -7,7 +7,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	
+	String s1{"Hi There!"};
 	
+	cout << "String s1 is: " << s1 << ". Length: " << s1.size() << endl;
 	
 	return 0;
 }

@@ -7,13 +7,10 @@
 using namespace std;
 	
 String::String(const char* chars)
-	:length{strlen(chars) > 0 ? strlen(chars) : throw length_error("Invalid length")}
-	, charPtr{length > 0 ? new char[length + 1] : NULL}
+	:length{strlen(chars) > 0 ? strlen(chars) : 0}, charPtr{new char[length + 1]}
 {
-	if (charPtr != NULL)
-	{
-		strcpy(charPtr, chars);	
-	}
+	strcpy(charPtr, chars);	
+
 }
 
 /*
@@ -92,9 +89,12 @@ String::operator unsigned long() const
 
 */
 
-/*
+
 ostream& operator<< (ostream& out, const String& str)
 {
+	out << str.charPtr;
+	
+	/*
 	if (str.length > 0)
 	{
 		for (size_t index = 0; index < str.length; ++index){
@@ -105,7 +105,8 @@ ostream& operator<< (ostream& out, const String& str)
 	{
 		out << "empty";
 	}
+	*/
 	
 	return out;
 }
-*/
+
