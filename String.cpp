@@ -6,9 +6,14 @@
 
 using namespace std;
 	
-String::String(const char* chars):length{strlen(chars)}, charPtr{new char[length + 1]}
+String::String(const char* chars)
+	:length{strlen(chars) > 0 ? strlen(chars) : throw length_error("Invalid length")}
+	, charPtr{length > 0 ? new char[length + 1] : NULL}
 {
-	strcpy(charPtr, chars);
+	if (charPtr != NULL)
+	{
+		strcpy(charPtr, chars);	
+	}
 }
 
 /*
