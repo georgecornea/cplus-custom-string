@@ -10,7 +10,7 @@ class String
 	
 public:
 	String(const char* = "");
-	//String(std::initializer_list<char>);
+	String(std::initializer_list<char>);
 	
 	//String(const long long);
 	~String();

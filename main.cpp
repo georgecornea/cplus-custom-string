@@ -7,13 +7,20 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	
-	String s1{"Hi There!"};
-	
-	cout << "String s1 is: " << s1 << ". Length: " << s1.size() << endl;
-	
-	cin >> s1;
-	cout << "String s1 is: " << s1 << ". Length: " << s1.size() << endl;
+	// testing default c-tor
+	String s;
+	cout << "String s is: " << s << ". Length: " << s.size() << endl;
+	cout << "Enter a new string for s: ";
+	cin >> s;
+	cout << "String s is: " << s << ". Length: " << s.size() << endl;
 
+	// testing c-tor with argumet
+	String s1{"Hi There!"};	
+	cout << "\nString s1 is: " << s1 << ". Length: " << s1.size() << endl;
+	
+	// testing initializer list c-tor
+	String s2{'a', 'b', 'c'};
+	cout << "\nString s2 is: " << s2 << ". Length: " << s2.size() << endl;
 	
 	return 0;
 }

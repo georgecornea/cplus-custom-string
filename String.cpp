@@ -13,16 +13,16 @@ String::String(const char* chars)
 
 }
 
-/*
-String::String(std::initializer_list<char> list):length{list.size()}, charPtr{new char[length + 1]}
+
+String::String(std::initializer_list<char> list):length{list.size()}, stringPtr{new char[length + 1]}
 {
 	size_t index = 0;
 	for (const auto& elem : list)
 	{
-		charPtr[index++] = elem;
+		stringPtr[index++] = elem;
 	}
 }
-*/
+
 
 String::~String(){
 	delete[] stringPtr;
