@@ -66,6 +66,11 @@ int main(int argc, char** argv) {
 	s5 = s;
 	cout << "\nString s5 is: " << s5 << ". Length: " << s5.size() << endl;
 	
+	// Testing move operator
+	cout << "\nTesting move operator: s1 = std::move(s5)";
+	s1 = std::move(s5);
+	cout << "\nString s1 is: " << s1 << ". Length: " << s1.size();
+	cout << "\nString s5 is: " << s5 << ". Length: " << s5.size() << endl;
 	
 	return 0;
 }

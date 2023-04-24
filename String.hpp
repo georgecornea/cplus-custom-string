@@ -30,6 +30,7 @@ public:
 	}
 	
 	const String& operator= (const String&); // assignment operator
+	const String& operator= (String&&) noexcept; // move operator
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;

@@ -58,6 +58,21 @@ const String& String::operator= (const String& rightString)
 	return *this;
 }
 
+// move operator
+const String& String::operator= (String&& rightString) noexcept
+{
+	if (*this != rightString)
+	{
+		this->length = rightString.length;
+		this->stringPtr = rightString.stringPtr;
+		
+		rightString.length = 0;
+		rightString.stringPtr = NULL;
+	}
+	
+	return *this;
+ } 
+
 char& String::operator[] (size_t index)
 {
 	if (index < 0 || index >= length)
