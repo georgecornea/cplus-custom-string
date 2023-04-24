@@ -61,5 +61,11 @@ int main(int argc, char** argv) {
 	cout << '\n' << s1 << " == " << s3 << "? : " << boolalpha << (s1 == s3);
 	cout << '\n' << s1 << " != " << s3 << "? : " << boolalpha << (s1 != s3) << endl;
 	
+	// Testing assignment operator
+	cout << "\nTesting assignment operator: s5 = s";
+	s5 = s;
+	cout << "\nString s5 is: " << s5 << ". Length: " << s5.size() << endl;
+	
+	
 	return 0;
 }

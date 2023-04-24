@@ -29,7 +29,7 @@ public:
 		return !(*this == rightString);
 	}
 	
-	//const String& operator== (const String&); // assignment operator
+	const String& operator= (const String&); // assignment operator
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;

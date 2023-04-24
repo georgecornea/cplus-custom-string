@@ -40,6 +40,24 @@ String::String (String&& rightString) noexcept:length(rightString.length), strin
 	rightString.stringPtr = NULL;
 } 
 
+ // assignment operator
+const String& String::operator= (const String& rightString)
+{
+	if (*this != rightString)
+	{
+		if (this->length != rightString.length)
+		{
+			this->length = rightString.length;
+			delete[] this->stringPtr;
+			this->stringPtr = new char[this->length + 1];			
+		}
+		
+		strcpy(this->stringPtr, rightString.stringPtr);
+	}
+	
+	return *this;
+}
+
 char& String::operator[] (size_t index)
 {
 	if (index < 0 || index >= length)
