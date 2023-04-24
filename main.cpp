@@ -72,5 +72,11 @@ int main(int argc, char** argv) {
 	cout << "\nString s1 is: " << s1 << ". Length: " << s1.size();
 	cout << "\nString s5 is: " << s5 << ". Length: " << s5.size() << endl;
 	
+	// Testing operators <, >, <=, >=
+	cout << "\nTesting operators <, >, <=, >=";
+	cout << '\n' << s1 << " < " << s3 << " ? : " << boolalpha << (s1 < s3);
+	cout << '\n' << s3 << " < " << s1 << " ? : " << boolalpha << (s3 < s1);
+	
+	
 	return 0;
 }

@@ -32,6 +32,12 @@ public:
 	const String& operator= (const String&); // assignment operator
 	const String& operator= (String&&) noexcept; // move operator
 	
+	// operator <
+	bool operator< (const String& rightString) const 
+	{
+		return strcmp(stringPtr, rightString.stringPtr) < 0;
+	}
+	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;
 	
