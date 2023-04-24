@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <iostream>
 #include <initializer_list>
+#include <cstring>
 
 class String
 {
@@ -15,6 +16,20 @@ public:
 	
 	String(const String&); // copy constructor
 	String (String&&) noexcept; // move constructor
+	
+	// operator ==
+	bool operator== (const String& rightString) const 
+	{
+		return strcmp(this->stringPtr, rightString.stringPtr) == 0;
+	}
+	
+	// operator !=
+	bool operator!= (const String& rightString) const 
+	{
+		return !(*this == rightString);
+	}
+	
+	//const String& operator== (const String&); // assignment operator
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+#include <iomanip>
 
 #include "String.hpp"
 
@@ -54,6 +55,11 @@ int main(int argc, char** argv) {
 	String s5 = std::move(s4);
 	cout << "\nString s5 is: " << s5 << ". Length: " << s5.size();
 	cout << "\nString s4. Length: " << s4.size() << ". String is: " << s4 << endl;
+	
+	// Testing operators == and !=
+	cout << "\nTesting operators == and != : s1 == s3, s1 != s3";
+	cout << '\n' << s1 << " == " << s3 << "? : " << boolalpha << (s1 == s3);
+	cout << '\n' << s1 << " != " << s3 << "? : " << boolalpha << (s1 != s3) << endl;
 	
 	return 0;
 }

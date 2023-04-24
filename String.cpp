@@ -62,7 +62,10 @@ char String::operator[] (size_t index) const
 
 ostream& operator<< (ostream& out, const String& s)
 {
-	out << s.stringPtr;
+	if (s.stringPtr != NULL)
+	{
+		out << s.stringPtr;	
+	}
 	return out;
 }
 
