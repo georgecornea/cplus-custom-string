@@ -11,15 +11,12 @@ class String
 public:
 	String(const char* = "");
 	String(std::initializer_list<char>);
-	
-	//String(const long long);
 	~String();
 	
+	String(const String&); // copy constructor
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;
-	
-	//operator unsigned long() const;
 	
 	size_t size() const {return length;}
 	
