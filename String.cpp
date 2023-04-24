@@ -31,7 +31,14 @@ String::String(const String& rightString):length(rightString.length)
 {
 	stringPtr = new char[length + 1];
 	strcpy(stringPtr, rightString.stringPtr);
- } 
+} 
+ 
+// move constructor
+String::String (String&& rightString) noexcept:length(rightString.length), stringPtr(rightString.stringPtr) 
+{
+	rightString.length = 0;
+	rightString.stringPtr = NULL;
+} 
 
 char& String::operator[] (size_t index)
 {

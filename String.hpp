@@ -14,6 +14,7 @@ public:
 	~String();
 	
 	String(const String&); // copy constructor
+	String (String&&) noexcept; // move constructor
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;

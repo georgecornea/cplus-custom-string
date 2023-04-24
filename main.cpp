@@ -47,7 +47,13 @@ int main(int argc, char** argv) {
 	String s3 (s1);
 	cout << "\nString s3 is: " << s3 << ". Length: " << s3.size();
 	String s4 = s1;
-	cout << "\nString s4 is: " << s4 << ". Length: " << s4.size();
+	cout << "\nString s4 is: " << s4 << ". Length: " << s4.size() << endl;
+	
+	// Testing move c-tor
+	cout << "\nTesting move c-tor: String s5 = std::move(s4)";
+	String s5 = std::move(s4);
+	cout << "\nString s5 is: " << s5 << ". Length: " << s5.size();
+	cout << "\nString s4. Length: " << s4.size() << ". String is: " << s4 << endl;
 	
 	return 0;
 }
