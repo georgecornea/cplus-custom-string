@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include "String.hpp"
 
-
 using namespace std;
-	
+
+
 String::String(const char* chars)
 	:length{strlen(chars) > 0 ? strlen(chars) : 0}, stringPtr{new char[length + 1]}
 {
@@ -54,6 +54,8 @@ String::String(const long long val){
 	
 }
 
+*/
+
 char& String::operator[] (size_t index)
 {
 	if (index < 0 || index >= length)
@@ -61,7 +63,7 @@ char& String::operator[] (size_t index)
 		throw invalid_argument("Index out of bounds!");
 	}
 	
-	return charPtr[index];
+	return stringPtr[index];
 }
 
 char String::operator[] (size_t index) const
@@ -71,9 +73,10 @@ char String::operator[] (size_t index) const
 		throw invalid_argument("Index out of bounds!");
 	}
 	
-	return charPtr[index];
+	return stringPtr[index];
 }
 
+/*
 String::operator unsigned long() const
 {
 	if (0 == strtoul(charPtr, NULL, 10) || charPtr[0] == '-') {

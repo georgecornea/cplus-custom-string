@@ -16,8 +16,8 @@ public:
 	~String();
 	
 	
-	//char& operator[] (size_t);
-	//char operator[] (size_t) const;
+	char& operator[] (size_t);
+	char operator[] (size_t) const;
 	
 	//operator unsigned long() const;
 	
