@@ -116,6 +116,30 @@ String String::operator() (int index, int subStringLength) const
 }
 
 
+// split() return a vector of char*
+std::vector<String> String::split(const char* separators) const
+{
+	char buffer[length + 1];
+	strcpy(buffer, stringPtr);
+	
+	vector<String> v;
+	String temp;
+	
+	char* tokenPtr = strtok(buffer, separators);
+	while (tokenPtr != NULL)
+	{
+		temp.length = strlen(tokenPtr);
+		delete[] temp.stringPtr;
+		temp.stringPtr = new char[temp.length + 1];
+		strcpy(temp.stringPtr, tokenPtr);
+		v.push_back(temp);
+		tokenPtr = strtok(NULL, separators);
+	}
+	
+	
+	return v;
+}
+
 char& String::operator[] (size_t index)
 {
 	if (index < 0 || index >= length)

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <initializer_list>
 #include <cstring>
+#include <vector>
 
 class String
 {
@@ -67,6 +68,9 @@ public:
 	
 	// operator() Return a substring
 	String operator() (int, int = 0) const;
+	
+	// split() return a vector of char*
+	std::vector<String> split(const char*) const;
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;

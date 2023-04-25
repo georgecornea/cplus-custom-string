@@ -112,5 +112,15 @@ int main(int argc, char** argv) {
 		cout << "\nError: " << le.what() << endl;
 	}
 	
+	// test split()
+	cout << "\nTesting split(): vector<String> v = s.split(" ")";
+	vector<String> v;
+	v = s.split(" !?");
+	cout << "\nElements in vector: ";
+	for (const String s : v)
+	{
+		cout << s << ' ';
+	}
+	
 	return 0;
 }
