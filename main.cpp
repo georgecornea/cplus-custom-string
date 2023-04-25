@@ -89,6 +89,28 @@ int main(int argc, char** argv) {
 	cout << "\nString s is: " << s << ". Length: " << s.size();
 	cout << "\nString s3 is: " << s3 << ". Length: " << s3.size() << endl;
 
+	// Testing operator() - Return a substring
+	cout << "\nTesting operator() - Return a substring: String s6 = s(0,2)";
+	String s6 = s(0,2);
+	cout << "\nString s6 is: " << s6 << ". Length: " << s6.size();
+	cout << "\nTesting operator() - invalid index: s6 = s(100,2)";
+	try 
+	{
+		s6 = s(100,2);
+	}
+	catch (invalid_argument& ia)
+	{
+		cout << "\nError: " << ia.what();
+	}
+	cout << "\nTesting operator() - invalid length: s6 = s(0,100)";
+	try 
+	{
+		s6 = s(0,100);
+	}
+	catch (length_error& le)
+	{
+		cout << "\nError: " << le.what() << endl;
+	}
 	
 	return 0;
 }

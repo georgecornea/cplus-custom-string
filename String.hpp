@@ -65,6 +65,9 @@ public:
 	// concatenation operator
 	const String& operator+= (const String&);
 	
+	// operator() Return a substring
+	String operator() (int, int = 0) const;
+	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;
 	

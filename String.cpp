@@ -91,6 +91,31 @@ const String& String::operator+= (const String& rightString)
 	
 }
 
+// operator() Return a substring
+String String::operator() (int index, int subStringLength) const
+{
+	if (index < 0 || index >= length)
+	{
+		throw invalid_argument("Index out of bounds!");
+	}
+	
+	if (subStringLength < 0 || (subStringLength - index) > this->length)
+	{
+		throw length_error("Invalid substring length");
+	}
+	
+	char* newString = new char[subStringLength + 1];
+	strncpy(newString, this->stringPtr + index, subStringLength);
+	
+	String tempString {newString};
+	
+	delete newString;
+	
+	return tempString;
+	
+}
+
+
 char& String::operator[] (size_t index)
 {
 	if (index < 0 || index >= length)
