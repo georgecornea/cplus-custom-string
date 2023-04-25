@@ -81,8 +81,13 @@ int main(int argc, char** argv) {
 	cout << '\n' << s1 << " <= " << s3 << " ? : " << boolalpha << (s1 <= s3);
 	cout << '\n' << s3 << " <= " << s1 << " ? : " << boolalpha << (s3 <= s1);
 	cout << '\n' << s1 << " >= " << s3 << " ? : " << boolalpha << (s1 >= s3);
-	cout << '\n' << s3 << " >= " << s1 << " ? : " << boolalpha << (s3 >= s1);
+	cout << '\n' << s3 << " >= " << s1 << " ? : " << boolalpha << (s3 >= s1) << endl;
 
+	// Testing string concatenation
+	cout << "\nTesting string concatenation: s += s3";
+	s += s3;
+	cout << "\nString s is: " << s << ". Length: " << s.size();
+	cout << "\nString s3 is: " << s3 << ". Length: " << s3.size() << endl;
 
 	
 	return 0;

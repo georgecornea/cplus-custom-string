@@ -72,6 +72,24 @@ const String& String::operator= (String&& rightString) noexcept
 	
 	return *this;
  } 
+ 
+// concatenation operator
+const String& String::operator+= (const String& rightString)
+{
+	char buffer1[length + 1]; 
+	strcpy(buffer1, stringPtr);
+	
+	length = length + rightString.length;
+	delete[] stringPtr;
+	stringPtr = new char[length + 1];
+	
+	strcpy(stringPtr, buffer1);
+	strcpy(stringPtr + strlen(buffer1), rightString.stringPtr);
+	
+	
+	return *this;
+	
+}
 
 char& String::operator[] (size_t index)
 {

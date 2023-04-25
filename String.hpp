@@ -56,6 +56,15 @@ public:
 		return !(rightString < *this);
 	}
 	
+	// operator ! (is string empty)
+	bool operator! () const 
+	{
+		return this->length == 0;
+	}
+	
+	// concatenation operator
+	const String& operator+= (const String&);
+	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;
 	
