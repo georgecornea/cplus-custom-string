@@ -76,7 +76,14 @@ int main(int argc, char** argv) {
 	cout << "\nTesting operators <, >, <=, >=";
 	cout << '\n' << s1 << " < " << s3 << " ? : " << boolalpha << (s1 < s3);
 	cout << '\n' << s3 << " < " << s1 << " ? : " << boolalpha << (s3 < s1);
-	
+	cout << '\n' << s1 << " > " << s3 << " ? : " << boolalpha << (s1 > s3);
+	cout << '\n' << s3 << " > " << s1 << " ? : " << boolalpha << (s3 > s1);
+	cout << '\n' << s1 << " <= " << s3 << " ? : " << boolalpha << (s1 <= s3);
+	cout << '\n' << s3 << " <= " << s1 << " ? : " << boolalpha << (s3 <= s1);
+	cout << '\n' << s1 << " >= " << s3 << " ? : " << boolalpha << (s1 >= s3);
+	cout << '\n' << s3 << " >= " << s1 << " ? : " << boolalpha << (s3 >= s1);
+
+
 	
 	return 0;
 }

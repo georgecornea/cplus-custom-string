@@ -38,6 +38,24 @@ public:
 		return strcmp(stringPtr, rightString.stringPtr) < 0;
 	}
 	
+	// operator >
+	bool operator> (const String& rightString) const 
+	{
+		return rightString < *this;
+	}
+	
+	// operator >=
+	bool operator>= (const String& rightString) const 
+	{
+		return !(*this < rightString);
+	}
+	
+	// operator <=
+	bool operator<= (const String& rightString) const 
+	{
+		return !(rightString < *this);
+	}
+	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;
 	
