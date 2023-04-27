@@ -168,6 +168,19 @@ char String::operator[] (size_t index) const
 	return stringPtr[index];
 }
 
+ // conversion operator to std::string
+String::operator std::string () const
+{
+	string newString;
+	newString.resize(length);
+	for (size_t index = 0; index < length; ++index)
+	{
+		newString[index] = stringPtr[index];
+	}
+	
+	return newString;
+}
+
 ostream& operator<< (ostream& out, const String& s)
 {
 	if (s.stringPtr != NULL)

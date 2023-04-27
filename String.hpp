@@ -17,7 +17,7 @@ public:
 	String(std::initializer_list<char>);
 	~String();
 	
-	String(const std::string&);
+	String(const std::string&); // conversion contructor 
 	
 	String(const String&); // copy constructor
 	String (String&&) noexcept; // move constructor
@@ -78,6 +78,8 @@ public:
 	
 	char& operator[] (size_t);
 	char operator[] (size_t) const;
+	
+	operator std::string () const; // conversion operator to std::string
 	
 	size_t size() const {return length;}
 	

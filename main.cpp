@@ -130,5 +130,11 @@ int main(int argc, char** argv) {
 	s1 += stlString;
 	cout << "\nString s1 is: " << s1 << ". Length: " << s1.size() << endl;
 	
+	// Testing conversion operator to std::string
+	cout << "\nTesting conversion operator to std::string: stlString = static_cast<string>(s1)";
+	stlString = static_cast<string>(s1); 
+	cout << "\nSTL String is: " << stlString << ". Length: " << stlString.size() << endl;
+	
+	
 	return 0;
 }
