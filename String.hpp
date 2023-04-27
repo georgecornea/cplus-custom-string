@@ -6,6 +6,7 @@
 #include <cstring>
 #include <vector>
 #include <string>
+#include <iterator>
 
 class String
 {
@@ -81,6 +82,7 @@ public:
 	
 	operator std::string () const; // conversion operator to std::string
 	
+	
 	size_t size() const {return length;}
 	
 private:
@@ -89,5 +91,43 @@ private:
 	
 public:
 	const static size_t MAX_LENGTH = 200;
+	
+	struct Iterator
+	{
+		using iterator_category = std::forward_iterator_tag;
+		using difference_type = std::ptrdiff_t;
+		using value_type = char;
+		using pointer = char*;
+		using reference = char&;
+		
+		Iterator(pointer ptr):cPtr(ptr){}
+		reference operator* () { return *cPtr;}
+		pointer operator-> () { return cPtr;}
+		Iterator& operator++ () 
+		{
+			++cPtr;
+			return *this; 
+		}
+		Iterator operator++(int)
+		{
+			Iterator temp = *this;
+			++cPtr;
+			return temp;
+		}
+		
+		friend bool operator== (const Iterator& it1, const Iterator& it2)
+		{
+			return strcmp(it1.cPtr, it2.cPtr) == 0;
+		}
+		
+		friend bool operator!= (const Iterator& it1, const Iterator& it2) { return !(it1 == it2);}
+		
+	private:
+		pointer cPtr;
+	};
+	
+	Iterator begin() { return &stringPtr[0];}
+	Iterator end() { return &stringPtr[length];}
+	
 	
 };

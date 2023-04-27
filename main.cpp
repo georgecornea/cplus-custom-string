@@ -135,6 +135,13 @@ int main(int argc, char** argv) {
 	stlString = static_cast<string>(s1); 
 	cout << "\nSTL String is: " << stlString << ". Length: " << stlString.size() << endl;
 	
+	// Testing String iterator
+	cout << "\nTesting iterator:";
+	cout << "\nString s1 is: ";
+	for (auto const c : s1)
+	{
+		cout << c << ' ';
+	}
 	
 	return 0;
 }
