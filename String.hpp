@@ -1,9 +1,11 @@
+#pragma once
 
 #include <cstddef>
 #include <iostream>
 #include <initializer_list>
 #include <cstring>
 #include <vector>
+#include <string>
 
 class String
 {
@@ -14,6 +16,8 @@ public:
 	String(const char* = "");
 	String(std::initializer_list<char>);
 	~String();
+	
+	String(const std::string&);
 	
 	String(const String&); // copy constructor
 	String (String&&) noexcept; // move constructor

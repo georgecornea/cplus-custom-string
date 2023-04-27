@@ -26,6 +26,14 @@ String::~String(){
 	delete[] stringPtr;
 }
 
+String::String(const std::string& stlString):length(stlString.size()), stringPtr{new char[length + 1]}
+{
+	for (size_t index = 0; index < stlString.size(); ++index)
+	{
+		stringPtr[index] = stlString[index];
+	}
+}
+
 // copy constructor
 String::String(const String& rightString):length(rightString.length)
 {

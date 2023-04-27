@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <iomanip>
+#include <string>
 
 #include "String.hpp"
 
@@ -121,6 +122,13 @@ int main(int argc, char** argv) {
 	{
 		cout << s << ' ';
 	}
+	cout << endl;
+	
+	// Testing stl string conversion constructor
+	cout << "\nTesting stl string conversion constructor: s1 += std::<string>";
+	string stlString = "Stl string!";
+	s1 += stlString;
+	cout << "\nString s1 is: " << s1 << ". Length: " << s1.size() << endl;
 	
 	return 0;
 }
