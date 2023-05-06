@@ -20,11 +20,10 @@ class String
 	friend std::istream& operator>> (std::istream&, String&); // stream insertion operator
 	
 public:
-	String(const char* = ""); // default c-tor
-	String(std::initializer_list<char>); // initializer_list c-tor
+	String(const char* = ""); // default c-tor. Create an empty String if no chars are ptovide
+	String(std::initializer_list<char>); // initializer_list c-tor. Create a String from a list of chars
 	~String(); // d-tor
-	
-	String(const std::string&); // conversion contructor 
+	String(const std::string&); // conversion contructor. Create a String from a std::string
 	
 	String(const String&); // copy constructor
 	String (String&&) noexcept; // move constructor
@@ -97,45 +96,7 @@ private:
 public:
 	const static size_t MAX_LENGTH = 200; // string max length
 	
-    /*
-	struct Iterator
-	{
-		using iterator_category = std::forward_iterator_tag;
-		using difference_type = std::ptrdiff_t;
-		using value_type = char;
-		using pointer = char*;
-		using reference = char&;
-		
-		Iterator(pointer ptr):cPtr(ptr){}
-		reference operator* () { return *cPtr;}
-		pointer operator-> () { return cPtr;}
-		Iterator& operator++ () 
-		{
-			++cPtr;
-			return *this; 
-		}
-		Iterator operator++(int)
-		{
-			Iterator temp = *this;
-			++cPtr;
-			return temp;
-		}
-		
-		friend bool operator== (const Iterator& it1, const Iterator& it2)
-		{
-			return strcmp(it1.cPtr, it2.cPtr) == 0;
-		}
-		
-		friend bool operator!= (const Iterator& it1, const Iterator& it2) { return !(it1 == it2);}
-		
-	private:
-		pointer cPtr;
-	};
-     
-     */
+	Iterator begin() { return &stringPtr[0];} // returns Iterator to the first char in String
+	Iterator end() { return &stringPtr[length];} // returns Iterator to pointer past last char in String
 	
-	Iterator begin() { return &stringPtr[0];}
-	Iterator end() { return &stringPtr[length];}
-	
-	
-};
+}; // end String class

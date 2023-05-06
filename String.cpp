@@ -1,3 +1,6 @@
+// String.cpp class member functions implementation
+// Name: George Cornea
+// Date: May 2023
 
 #include <cstring>
 #include <stdexcept>
@@ -5,7 +8,7 @@
 
 using namespace std;
 
-
+// default c-tor. Create an empty String if no chars are ptovide
 String::String(const char* chars)
 	:length{strlen(chars) > 0 ? strlen(chars) : 0}, stringPtr{new char[length + 1]}
 {
@@ -13,6 +16,7 @@ String::String(const char* chars)
 
 }
 
+// initializer_list c-tor. Create a String from a list of chars
 String::String(std::initializer_list<char> list):length{list.size()}, stringPtr{new char[length + 1]}
 {
 	size_t index = 0;
@@ -22,10 +26,12 @@ String::String(std::initializer_list<char> list):length{list.size()}, stringPtr{
 	}
 }
 
+// Destructor
 String::~String(){
 	delete[] stringPtr;
 }
 
+// conversion contructor. Create a String from a std::string
 String::String(const std::string& stlString):length(stlString.size()), stringPtr{new char[length + 1]}
 {
 	for (size_t index = 0; index < stlString.size(); ++index)
@@ -64,7 +70,8 @@ const String& String::operator= (const String& rightString)
 	}
 	
 	return *this;
-}
+
+} // end assigment operator =
 
 // move operator
 const String& String::operator= (String&& rightString) noexcept
@@ -79,7 +86,8 @@ const String& String::operator= (String&& rightString) noexcept
 	}
 	
 	return *this;
- } 
+    
+ }  // end move operator
  
 // concatenation operator
 const String& String::operator+= (const String& rightString)
@@ -94,10 +102,9 @@ const String& String::operator+= (const String& rightString)
 	strcpy(stringPtr, buffer1);
 	strcpy(stringPtr + strlen(buffer1), rightString.stringPtr);
 	
-	
 	return *this;
 	
-}
+} // end operator +=
 
 // operator() Return a substring
 String String::operator() (int index, int subStringLength) const
@@ -117,12 +124,11 @@ String String::operator() (int index, int subStringLength) const
 	
 	String tempString {newString};
 	
-	delete newString;
+	delete[] newString;
 	
 	return tempString;
 	
-}
-
+} // end operator()
 
 // split() return a vector of char*
 std::vector<String> String::split(const char* separators) const
@@ -144,10 +150,11 @@ std::vector<String> String::split(const char* separators) const
 		tokenPtr = strtok(NULL, separators);
 	}
 	
-	
 	return v;
-}
+    
+} // end split
 
+// operator [] - left value
 char& String::operator[] (size_t index)
 {
 	if (index < 0 || index >= length)
@@ -158,6 +165,7 @@ char& String::operator[] (size_t index)
 	return stringPtr[index];
 }
 
+// operator [] - right value
 char String::operator[] (size_t index) const
 {
 	if (index < 0 || index >= length)
@@ -181,6 +189,7 @@ String::operator std::string () const
 	return newString;
 }
 
+// stream extraction operator <<
 ostream& operator<< (ostream& out, const String& s)
 {
 	if (s.stringPtr != NULL)
@@ -190,6 +199,7 @@ ostream& operator<< (ostream& out, const String& s)
 	return out;
 }
 
+// stream insertion operator
 istream& operator>> (istream& in, String& s)
 {
 	

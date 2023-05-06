@@ -1,3 +1,7 @@
+// main.cpp for testing custom String class
+// Name: George Cornea
+// Date: May 2023
+
 #include <iostream>
 #include <stdexcept>
 #include <iomanip>
