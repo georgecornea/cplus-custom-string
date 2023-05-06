@@ -118,7 +118,7 @@ int main(int argc, char** argv) {
 	vector<String> v;
 	v = s.split(" !?");
 	cout << "\nElements in vector: ";
-	for (const String s : v)
+	for (const String& s : v)
 	{
 		cout << s << ' ';
 	}

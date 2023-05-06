@@ -1,3 +1,8 @@
+// String.hpp class interface
+// Custom String class
+// Name: George Cornea
+// Date: May 2023
+
 #pragma once
 
 #include <cstddef>
@@ -7,16 +12,17 @@
 #include <vector>
 #include <string>
 #include <iterator>
+#include "Iterator.hpp"
 
 class String
 {
-	friend std::ostream& operator<< (std::ostream&, const String&);
-	friend std::istream& operator>> (std::istream&, String&);
+	friend std::ostream& operator<< (std::ostream&, const String&); // stream extraction operator <<
+	friend std::istream& operator>> (std::istream&, String&); // stream insertion operator
 	
 public:
-	String(const char* = "");
-	String(std::initializer_list<char>);
-	~String();
+	String(const char* = ""); // default c-tor
+	String(std::initializer_list<char>); // initializer_list c-tor
+	~String(); // d-tor
 	
 	String(const std::string&); // conversion contructor 
 	
@@ -77,21 +83,21 @@ public:
 	// split() return a vector of char*
 	std::vector<String> split(const char*) const;
 	
-	char& operator[] (size_t);
-	char operator[] (size_t) const;
+	char& operator[] (size_t); // operator [] - left value
+	char operator[] (size_t) const; // operator [] - right value
 	
 	operator std::string () const; // conversion operator to std::string
 	
-	
-	size_t size() const {return length;}
+	size_t size() const {return length;} // return string length
 	
 private:
-	size_t length;
-	char* stringPtr;
+	size_t length; // data member - string length
+	char* stringPtr; // data member pointer
 	
 public:
-	const static size_t MAX_LENGTH = 200;
+	const static size_t MAX_LENGTH = 200; // string max length
 	
+    /*
 	struct Iterator
 	{
 		using iterator_category = std::forward_iterator_tag;
@@ -125,6 +131,8 @@ public:
 	private:
 		pointer cPtr;
 	};
+     
+     */
 	
 	Iterator begin() { return &stringPtr[0];}
 	Iterator end() { return &stringPtr[length];}
